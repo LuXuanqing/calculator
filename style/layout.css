@@ -21,8 +21,6 @@ html, body {
 	height: 35%;
 }
 
-
-
 #input {
 	height: 70%;
 }
@@ -39,4 +37,25 @@ html, body {
 }
 #zero {
 	width: 50%;
+}
+.container, .mockup {
+	height: 100%;
+}
+@media (min-width: 769px) {
+	.container {
+		height: 100%;
+		width: 100%;
+	}
+	.mockup {
+		background-image: url('../images/device.png');
+		width: 217px;
+		height: 441px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 53.5px 14.75px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 }
