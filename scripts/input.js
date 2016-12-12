@@ -15,17 +15,8 @@
 		operators[i].onclick = function() {
 			console.log('pressed ' + this.getAttribute('value'))
 			expression.innerHTML += this.getAttribute('value')
-			calc()
 		}
 	}
-
-	// 结果实时显示
-	function calc() {		
-		var exp_pseudo = expression.innerText
-		console.log(exp_pseudo + '=')
-		result.innerText = eval(expression.innerText)
-	}
-
 	// 设置C按键清除屏幕
 	function clear() {
 		expression.innerText = ''
@@ -36,4 +27,20 @@
 	btnClear.onclick = function() {
 		clear()
 	}
+
+	// 替换表达式中的乘除号
+	function convert(str) {
+		str = str.replace(/×/g, '*')
+		str = str.replace(/÷/g, '/')
+		return str
+	}
+
+	// 结果实时显示
+	function calc() {		
+		var exp_pseudo = expression.innerHTML
+		var exp_true = convert(exp_pseudo)
+		result.innerText = eval(exp_true)
+	}
+
+
 	
