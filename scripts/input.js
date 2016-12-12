@@ -9,6 +9,7 @@
 			calc()
 		}
 	}
+
 	// 设置加减乘除的显示
 	var operators = document.getElementsByClassName('operators')
 	for (var i = 0; i < operators.length; i++) {
@@ -17,6 +18,7 @@
 			expression.innerHTML += this.getAttribute('value')
 		}
 	}
+
 	// 设置C按键清除屏幕
 	function clear() {
 		expression.innerText = ''
@@ -57,5 +59,19 @@
 		calc()
 	}
 
+	// 设置括号建
+	var brackets = document.getElementById('brackets')
+	brackets.onclick = function() {
+		var lastChar = expression.innerHTML.charAt(expression.innerHTML.length-1)
+		console.log(lastChar)
+		if (lastChar == '.' || lastChar == '') {
+			return false
+		} else if (/\d/.test(lastChar) || lastChar == ')') {
+			expression.innerHTML += ')'
+		} else {
+			expression.innerHTML += '('
+		}
+		calc()
+	}
 
-	
+
