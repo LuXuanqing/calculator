@@ -35,11 +35,26 @@
 		return str
 	}
 
-	// 结果实时显示
+	// 计算表达式
 	function calc() {		
 		var exp_pseudo = expression.innerHTML
 		var exp_true = convert(exp_pseudo)
-		result.innerText = eval(exp_true)
+		// 如果表达式为空，则结果为0
+		if (exp_true == "") {
+			result.innerText = 0
+		} else {
+			result.innerText = eval(exp_true)
+		}
+	}
+
+	// 设置del键
+	var del = document.getElementById('del')
+	del.onclick = function() {
+		var exp = expression.innerText
+		// 删除表达式字符串中的最后一个字符
+		exp = exp.substring(0, exp.length-1)
+		expression.innerText = exp
+		calc()
 	}
 
 
