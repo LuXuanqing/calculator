@@ -22,8 +22,12 @@
 	position: relative;
 }
 .btn span {
-	display: block;
-	position: absolute; left: 50%; top: 50%;
+	position: absolute; 
+	left: 50%; 
+	top: 50%;
     transform: translate(-50%, -50%); 
 
+}
+#result {
+	color: rgba(255, 255, 255, 0.5)
 }
