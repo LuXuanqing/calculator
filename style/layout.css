@@ -38,24 +38,39 @@ html, body {
 #zero {
 	width: 50%;
 }
-.container, .mockup {
+.container  {
 	height: 100%;
 }
 @media (min-width: 769px) {
 	.container {
-		height: 100%;
-		width: 100%;
-	}
-	.mockup {
-		background-image: url('../images/device.png');
-		width: 217px;
-		height: 441px;
-		background-repeat: no-repeat;
-		background-size: cover;
-		padding: 53.5px 14.75px;
+		height: 512px;
+		width: 360px;
 		position: absolute;
-		top: 50%;
+		top: 30%;
 		left: 50%;
-		transform: translate(-50%, -50%);
+		transform: translate(-50%, -30%);
+	}
+	#output {
+		border-radius: 16px 16px 0 0;
+	}
+	#zero {
+		border-radius: 0 0 0 16px;
+	}
+	#equal {
+		border-radius: 0 0 16px 0;
+	}
+	#shadow {
+		width: 490px;
+		height: 251px;
+		background-image: url('../images/shadow.png');
+		background-position: center bottom;
+		bottom: 120px;
+		position: relative; 
+		left: 50%; 
+		transform: translate(-50%);
+		z-index: -1;
+	}
+	body {
+		background-color: #F9EADB;
 	}
 }
