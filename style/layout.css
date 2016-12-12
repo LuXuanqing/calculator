@@ -21,8 +21,6 @@ html, body {
 	height: 35%;
 }
 
-
-
 #input {
 	height: 70%;
 }
@@ -36,6 +34,14 @@ html, body {
 	width: 25%;
 	height: 100%;
 	float: left;
+	position: relative;
+}
+// 按键上的文字水平垂直居中
+.btn span {
+	position: absolute; 
+	left: 50%; 
+	top: 50%;
+    transform: translate(-50%, -50%); 
 }
 #zero {
 	width: 50%;
