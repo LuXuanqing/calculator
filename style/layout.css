@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html, body {
+	height: 100%;
+}
+
+#output {
+	height: 30%;
+	padding: 24px 20px 12px 20px;
+}
+.display {
+	width: 100%;
+}
+#expression {
+	height: 65%;
+}
+#result {
+	height: 35%;
+}
+
+
+
+#input {
+	height: 70%;
+}
+
+.row {
+	height: 20%;
+	width: 100%;
+}
+.btn {
+	display: inline-block;
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+#zero {
+	width: 50%;
+}
+#zero div {
+	width: 50%;
+}

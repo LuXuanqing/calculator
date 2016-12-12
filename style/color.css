@@ -1,0 +1,13 @@
+.btn {
+	background-color: #F04F4E;
+	color: white;
+	border-right: 1px solid rgba(255,255,255,.2);
+	border-bottom: 1px solid rgba(255,255,255,.2);
+}
+#output {
+	color: white;
+	background: #2E325D;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,1);
+	z-index: 10;
+	position: relative;
+}

@@ -1,0 +1,29 @@
+* {
+	font-family: "Helvetica Neue";
+}
+
+.display {
+	text-align: right;
+	font-weight: 100;
+	letter-spacing: 3px;
+}
+#expression {
+	font-size: 48px;
+}
+#result {
+	font-size: 28px;
+}
+
+.btn {
+	font-size: 26px;
+	font-weight: 100;
+}
+.btn {
+	position: relative;
+}
+.btn span {
+	display: block;
+	position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%); 
+
+}
