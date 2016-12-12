@@ -41,6 +41,7 @@
 	function calc() {		
 		var exp_pseudo = expression.innerHTML
 		var exp_true = convert(exp_pseudo)
+		console.log(exp_true + ' =')
 		// 如果表达式为空，则结果为0
 		if (exp_true == "") {
 			result.innerText = 0
@@ -63,15 +64,14 @@
 	var brackets = document.getElementById('brackets')
 	brackets.onclick = function() {
 		var lastChar = expression.innerHTML.charAt(expression.innerHTML.length-1)
-		console.log(lastChar)
-		if (lastChar == '.' || lastChar == '') {
+		if (lastChar == '.') {
 			return false
 		} else if (/\d/.test(lastChar) || lastChar == ')') {
 			expression.innerHTML += ')'
+			calc()
 		} else {
 			expression.innerHTML += '('
 		}
-		calc()
 	}
 
 
