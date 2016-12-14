@@ -4,6 +4,14 @@
 	border-right: 1px solid rgba(255,255,255,.15);
 	border-bottom: 1px solid rgba(255,255,255,.15);
 }
+/*取消最后一行的底边框*/
+.row:last-child .btn{
+	border-bottom: none;
+}
+/*取消最后一列的右边框*/
+.row .btn:last-child {
+	border-right: none;
+}
 .btn:hover, .btn:active {
 	background: #E33D4E;
 	box-shadow: inset 0 1px 4px 0 rgba(0,0,0,.05);
@@ -14,6 +22,4 @@
 	box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
 	z-index: 10;
 	position: relative;
-}
-body {
 }

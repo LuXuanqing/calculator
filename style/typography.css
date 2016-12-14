@@ -5,7 +5,7 @@
 .display {
 	text-align: right;
 	font-weight: 100;
-	letter-spacing: 3px;
+	letter-spacing: 2px;
 }
 #expression {
 	font-size: 48px;
@@ -22,10 +22,10 @@
 	position: relative;
 }
 .btn span {
-	position: absolute; 
-	left: 50%; 
+	position: absolute;
+	left: 50%;
 	top: 50%;
-    transform: translate(-50%, -50%); 
+	transform: translate(-50%, -50%);
 
 }
 #result {
