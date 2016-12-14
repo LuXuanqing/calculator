@@ -10,7 +10,7 @@
 #expression {
 	word-wrap: break-word;
 	overflow: auto;
-	transition: font-size .5s;
+	transition: font-size ease .3s
 }
 /*default: 11chars per line*/
 .size1 {
