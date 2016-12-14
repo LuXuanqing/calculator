@@ -62,30 +62,4 @@ html, body, .container {
 		left: 50%;
 		transform: translate(-50%, -30%);
 	}
-	/*设置四个圆角*/
-	#output {
-		border-radius: 16px 16px 0 0;
-	}
-	#zero {
-		border-radius: 0 0 0 16px;
-	}
-	#equal {
-		border-radius: 0 0 16px 0;
-	}
-	/*阴影*/
-	#shadow {
-		width: 490px;
-		height: 251px;
-		background-image: url('../images/shadow.png');
-		background-position: center bottom;
-		bottom: 120px;
-		position: relative;
-		left: 50%;
-		transform: translate(-50%);
-		z-index: -1;
-	}
-	/*背景*/
-	body {
-		background-color: #F9EADB;
-	}
 }
