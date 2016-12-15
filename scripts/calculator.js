@@ -1,66 +1,119 @@
+'use strict'
 var expression = document.getElementById('expression')
 var result = document.getElementById('result')
-// 设置数字输入显示
-var nums = document.getElementsByClassName('btn-num')
-for (var i = 0; i < nums.length; i++) {
-	nums[i].onclick = function() {
-		console.log('pressed ' + this.getAttribute('value'))
-		expression.innerHTML += this.getAttribute('value')
-		calc()
+
+var calculator = {
+	result: 0,
+	exp_display: '',
+	exp_true: '',
+	operate: function () {
+		var lastChar = this.exp_true.charAt(this.exp_true.length-1)
+		// 最后一位是数字或者是后括号才运行
+		if (Number(lastChar) || lastChar == ')') {
+			if (this.exp_true == "") {
+				this.result = 0// 如果表达式为空，则结果为0
+			} else if (this.exp_true == "2+2") {
+				this.result = 5//彩蛋
+			} else {
+				this.result = eval(this.exp_true)
+			}
+		}
+		refresh()
 	}
+}
+// 刷新显示的数据
+function refresh() {
+	expression.innerHTML = calculator.exp_display
+	result.innerHTML = calculator.result
+}
+// 在表达式末尾插入字符
+function insert(char) {
+	console.log('pressed ' + char)
+	var lastChar = calculator.exp_true
+	function add2Exp_true(c) {
+		calculator.exp_true += c
+	}
+	if (char == '(' || char == ')') {
+		//括号
+		if (lastChar == '.') {
+			return false
+		} else if (Number(lastChar) || lastChar == ')') {
+			add2Exp_true(')')
+		} else {
+			add2Exp_true('(')
+		}
+	} else {
+		//非括号
+		if (char == '.') {
+			// 小数点
+			// 最后一位是数字
+			if (Number(lastChar)) {
+				add2Exp_true(char)
+			}
+		} else if (/[\+\-\*\/]/.test(char)) {
+			console.log('输入了运算符')
+			// 运算符号
+			if (Number(lastChar) || lastChar == ')') {
+				// 最后一位是数字或者后括号，插入
+				add2Exp_true(char)
+			} else if (/[\+\-\*\/]/.test(lastChar)) {
+				// 最后一位是运算符，删除原来的最后一位运算符然后插入新的
+				delLastInput()
+				add2Exp_true(char)
+			}
+		}else if (Number(char)) {
+			// 数字
+			add2Exp_true(char)
+		}
+	}
+	calculator.exp_display = calculator.exp_true.replace(/\*/g, '&times;')
+	calculator.exp_display = calculator.exp_true.replace(/\//g, '&divide;')
+	calculator.operate()
+}
+// 监听键盘输入
+document.addEventListener('keypress', function(event) {
+	console.log('keyCode: ' + event.keyCode)
+	if ((event.keyCode >= 45 && event.keyCode <= 57) || (event.keyCode >= 40 && event.keyCode <= 43)) {
+		insert(String.fromCharCode(event.keyCode))
+	} else if (event.keyCode == 13) {
+		//按下等于键
+		console.log('yes!')
+	}
+})
+// 鼠标点击输入数字
+var keys = document.getElementsByClassName('btn-type')
+for (var i = 0; i < keys.length; i++) {
+	keys[i].addEventListener('click', function(){
+		insert(this.getAttribute('key'))
+	})
 }
 
-// 设置加减乘除的显示
-var operators = document.getElementsByClassName('operators')
-for (var i = 0; i < operators.length; i++) {
-	operators[i].onclick = function() {
-		console.log('pressed ' + this.getAttribute('value'))
-		expression.innerHTML += this.getAttribute('value')
-	}
-}
 
 // 设置C按键清除屏幕
-function clear() {
-	expression.innerText = ''
-	result.innerText = 0
-	console.log('cleared!')
-}
 var btnClear = document.getElementById('clear')
 btnClear.onclick = function() {
-	clear()
+	calculator.exp_true = ''
+	calculator.exp_display = ''
+	calculator.result = 0
+	refresh()
+	console.log('cleared')
 }
 
-// 替换表达式中的乘除号
-function convert(str) {
-	str = str.replace(/×/g, '*')
-	str = str.replace(/÷/g, '/')
-	return str
-}
-
-// 计算表达式
-function calc() {
-	var exp_pseudo = expression.innerHTML
-	var exp_true = convert(exp_pseudo)
-	// 如果表达式为空，则结果为0
-	if (exp_true == "") {
-		result.innerText = 0
-	} else if (exp_true == "2+2") {
-		result.innerText = 5
-	} else {
-		result.innerText = eval(exp_true)
-	}
-	changeFontSize()
-}
 
 // 设置del键
 var del = document.getElementById('del')
-del.onclick = function() {
-	var exp = expression.innerText
-	// 删除表达式字符串中的最后一个字符
-	exp = exp.substring(0, exp.length-1)
-	expression.innerText = exp
-	calc()
+function delLastInput() {
+	function deleteLastChar(str) {
+		return str.substring(0, str.length-1)
+	}
+	calculator.exp_true = deleteLastChar(calculator.exp_true)
+	calculator.exp_display = deleteLastChar(calculator.exp_display)
+	calculator.operate()
 }
+del.addEventListener('click', function() {
+	delLastInput()
+})
+
 
 // 设置括号建
 var brackets = document.getElementById('brackets')
