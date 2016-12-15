@@ -5,3 +5,4 @@ original design: [WORAWALUNS](https://dribbble.com/shots/2320805--Freebie-Calcu
 To do list:
 1. "=" button's function
 2. keyboard input
+11
