@@ -11,7 +11,7 @@
 <body>
 	<div class="container">
 		<div id="output">
-			<div class="display size1" id="expression"></div>
+			<input type="text" name="" value="" id="expression" class="display size1">
 			<div class="display" id="result">0</div>
 		</div>
 		<div id="input">
@@ -19,33 +19,33 @@
 				<div class="btn btn-fn" id="clear"><span>C</span></div>
 				<div class="btn btn-fn" id="brackets"><span>( )</span></div>
 				<div class="btn btn-fn" id="del"><span>del</span></div>
-				<div class="btn btn-fn operators" id="divide" value='&divide;'><span>&divide;</span></div>
+				<div class="btn btn-fn operators" value='&divide;'><span>&divide;</span></div>
 			</div>
 			<div class="row">
-				<div class="btn btn-num" value="7" id="seven"><span>7</span></div>
-				<div class="btn btn-num" value="8" id="eight" ><span>8</span></div>
-				<div class="btn btn-num" value="9" id="nine"><span>9</span></div>
-				<div class="btn btn-fn operators" id="multiply" value="&times;"><span>&times;</span></div>
+				<div class="btn btn-num" value="7"><span>7</span></div>
+				<div class="btn btn-num" value="8" ><span>8</span></div>
+				<div class="btn btn-num" value="9"><span>9</span></div>
+				<div class="btn btn-fn operators" value="&times;"><span>&times;</span></div>
 			</div>
 			<div class="row">
-				<div class="btn btn-num" value="4" id="four"><span>4</span></div>
-				<div class="btn btn-num" value="5" id="five"><span>5</span></div>
-				<div class="btn btn-num" value="6" id="six"><span>6</span></div>
-				<div class="btn btn-fn operators" value='-' id="sub"><span>-</span></div>
+				<div class="btn btn-num" value="4"><span>4</span></div>
+				<div class="btn btn-num" value="5"><span>5</span></div>
+				<div class="btn btn-num" value="6"><span>6</span></div>
+				<div class="btn btn-fn operators" value='-'><span>-</span></div>
 			</div>
 			<div class="row">
 				<div class="btn btn-num" value="1" id="one" ><span>1</span></div>
 				<div class="btn btn-num" value="2" id="two"><span>2</span></div>
 				<div class="btn btn-num" value="3" id="three"><span>3</span></div>
-				<div class="btn btn-fn operators" value='+' id="plus"><span>+</span></div>
+				<div class="btn btn-fn operators" value='+'><span>+</span></div>
 			</div>
-			<div class="row" id="row5" >
+			<div class="row">
 				<div class="btn btn-num" value="0" id="zero"><span>0</span></div>
-				<div class="btn btn-num" value="." id="point"><span>.</span></div>
+				<div class="btn btn-num" value="."><span>.</span></div>
 				<div class="btn btn-fn" id="equal"><span>=</span></div>
 			</div>
 		</div>
-		<div id="shadow"><!-- <img src="images/shadow.png" alt=""> --></div>
+		<div id="shadow"></div>
 	</div>
 	<script src="scripts/calculator.js"></script>
 </body>

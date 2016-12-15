@@ -5,7 +5,7 @@ var nums = document.getElementsByClassName('btn-num')
 for (var i = 0; i < nums.length; i++) {
 	nums[i].onclick = function() {
 		console.log('pressed ' + this.getAttribute('value'))
-		expression.innerHTML += this.getAttribute('value')
+		expression.value += this.getAttribute('value')
 		calc()
 	}
 }
@@ -15,13 +15,13 @@ var operators = document.getElementsByClassName('operators')
 for (var i = 0; i < operators.length; i++) {
 	operators[i].onclick = function() {
 		console.log('pressed ' + this.getAttribute('value'))
-		expression.innerHTML += this.getAttribute('value')
+		expression.value += this.getAttribute('value')
 	}
 }
 
 // 设置C按键清除屏幕
 function clear() {
-	expression.innerText = ''
+	expression.value = ''
 	result.innerText = 0
 	console.log('cleared!')
 }
@@ -39,7 +39,7 @@ function convert(str) {
 
 // 计算表达式
 function calc() {
-	var exp_pseudo = expression.innerHTML
+	var exp_pseudo = expression.value
 	var exp_true = convert(exp_pseudo)
 	// 如果表达式为空，则结果为0
 	if (exp_true == "") {
@@ -55,31 +55,31 @@ function calc() {
 // 设置del键
 var del = document.getElementById('del')
 del.onclick = function() {
-	var exp = expression.innerText
+	var exp = expression.value
 	// 删除表达式字符串中的最后一个字符
 	exp = exp.substring(0, exp.length-1)
-	expression.innerText = exp
+	expression.value = exp
 	calc()
 }
 
 // 设置括号建
 var brackets = document.getElementById('brackets')
 brackets.onclick = function() {
-	var lastChar = expression.innerHTML.charAt(expression.innerHTML.length-1)
+	var lastChar = expression.value.charAt(expression.value.length-1)
 	console.log(lastChar)
 	if (lastChar == '.' || lastChar == '') {
 		return false
 	} else if (/\d/.test(lastChar) || lastChar == ')') {
-		expression.innerHTML += ')'
+		expression.value += ')'
 	} else {
-		expression.innerHTML += '('
+		expression.value += '('
 	}
 	calc()
 }
 
 // 更具表达式的长度自动缩放字体大小
 function changeFontSize() {
-	var length = expression.innerHTML.length
+	var length = expression.value.length
 	console.log(length)
 	if (length < 11) {
 		expression.className = 'display size1'
