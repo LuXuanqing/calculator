@@ -22,7 +22,7 @@ for (var i = 0; i < operators.length; i++) {
 // 设置C按键清除屏幕
 function clear() {
 	expression.innerText = ''
-	result.innerText = 0
+	result.innerText = ''
 	console.log('cleared!')
 }
 var btnClear = document.getElementById('clear')
@@ -80,7 +80,7 @@ brackets.onclick = function() {
 // 更具表达式的长度自动缩放字体大小
 function changeFontSize() {
 	var length = expression.innerHTML.length
-	console.log(length)
+	console.log('expression length: ' + length)
 	if (length < 11) {
 		expression.className = 'display size1'
 	} else if (length <16) {
@@ -88,4 +88,16 @@ function changeFontSize() {
 	} else {
 		expression.className = 'display size3'
 	}
+}
+
+// 设置等号按键
+function equal() {
+	console.log('EQUAL' + result.innerHTML)
+	expression.innerHTML = result.innerHTML
+	result.innerHTML = ''
+	changeFontSize()
+}
+var btnEqual = document.getElementById('equal')
+btnEqual.onclick = function() {
+	equal()
 }
