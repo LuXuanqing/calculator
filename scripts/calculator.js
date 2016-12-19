@@ -18,14 +18,12 @@ for (var i = 0; i < operators.length; i++) {
 }
 
 // 设置C按键清除屏幕
-function clear() {
-	expression.innerText = ''
-	result.innerText = ''
-}
 var btnClear = document.getElementById('clear')
-btnClear.onclick = function() {
-	clear()
-}
+
+btnClear.addEventListener('click', function() {
+	expression.innerHTML = ''
+	result.innerHTML = 0
+})
 
 // 替换表达式中的乘除号
 function convert(str) {
