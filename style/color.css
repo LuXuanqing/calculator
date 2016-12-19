@@ -12,6 +12,10 @@
 .row .btn:last-child {
 	border-right: none;
 }
+/*文字上禁用I型指针*/
+span {
+	pointer-events: none;
+}
 /*桌面端*/
 @media (min-width: 769px) {
 	/*设置四个圆角*/
