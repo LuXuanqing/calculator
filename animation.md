@@ -10,6 +10,6 @@
 
 
 ## animation
-- [ ] @keyframe,改变#result的top
-- [ ] @keyframe 改变#expression的opacity和top
-- [ ] 监听animationend, expression = rsult, result = ''
+- [x] @keyframe,改变#result的top
+- [x] @keyframe 改变#expression的opacity和top
+- [x] 监听animationend, expression = rsult, result = ''

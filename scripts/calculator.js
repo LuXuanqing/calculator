@@ -49,7 +49,7 @@ function calc() {
 	} else {
 		result.innerText = eval(exp_true)
 	}
-	changeFontSize()
+	autoSize(expression)
 }
 
 // 设置del键
@@ -77,33 +77,33 @@ brackets.onclick = function() {
 	calc()
 }
 
-// 更具表达式的长度自动缩放字体大小
-function changeFontSize() {
-	var length = expression.innerHTML.length
-	console.log('expression length: ' + length)
-	if (length < 11) {
-		expression.className = 'display size1'
-	} else if (length <16) {
-		expression.className = 'display size2'
-	} else {
-		expression.className = 'display size3'
-	}
-}
-
 // 设置等号按键
-function equal() {
+function transResultToExp() {
 	console.log('EQUAL' + result.innerHTML)
 	expression.innerHTML = result.innerHTML
 	result.innerHTML = ''
-	changeFontSize()
 }
 var btnEqual = document.getElementById('equal')
 btnEqual.addEventListener('click', function() {
-	$('#result').addClass('slideup_result').css('fontSize', '52px')
+	$('#result').addClass('slideup_result')
+	autoSize(result)
 	$('#expression').addClass('slideup_exp')
 })
 result.addEventListener('animationend', function(){
-	equal()
+	transResultToExp()
+	autoSize(expression)
 	$('#result').removeClass('slideup_result').css('fontSize', '28px');
 	$('#expression').removeClass('slideup_exp')
 }, false)
+
+// 根据长度自动改变字体大小
+function autoSize(el) {
+	var length = el.innerHTML.length
+	if (length <= 9) {
+		el.style.fontSize = '52px'
+	} else if (length <= 13) {
+		el.style.fontSize = '38px'
+	} else {
+		el.style.fontSize = '30px'
+	}
+}
