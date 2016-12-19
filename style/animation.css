@@ -6,14 +6,24 @@
   0% {opacity: 0.5; top: 0;}
   100% {opacity: 1; top: -107px;}
 }
+@-webkit-keyframes slideup_result {
+  0% {opacity: 0.5; top: 0;}
+  100% {opacity: 1; top: -107px;}
+}
 .slideup_result {
   animation-name: slideup_result;
   animation-duration: .3s;
   animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
+  -webkit-animation-name: slideup_result;
+  -webkit-animation-duration: .3s;
+  -webkit-animation-timing-function: ease-in-out;
   transition: font-size cubic-bezier(0.65, 0.05, 0.36, 1) .3s;
 }
 @keyframes slideup_exp  {
+  0% {top: 0; opacity: 1;}
+  100% {top: -142px; opacity: 0;}
+}
+@-webkit-keyframes slideup_exp  {
   0% {top: 0; opacity: 1;}
   100% {top: -142px; opacity: 0;}
 }
@@ -21,4 +31,7 @@
   animation-name: slideup_exp;
   animation-duration: .3s;
   animation-timing-function: cubic-bezier(0.47, 0, 0.75, 0.72);
+  -webkit-animation-name: slideup_exp;
+  -webkit-animation-duration: .3s;
+  -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.75, 0.72);
 }

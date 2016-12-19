@@ -4,7 +4,6 @@ var result = document.getElementById('result')
 var nums = document.getElementsByClassName('btn-num')
 for (var i = 0; i < nums.length; i++) {
 	nums[i].onclick = function() {
-		console.log('pressed ' + this.getAttribute('value'))
 		expression.innerHTML += this.getAttribute('value')
 		calc()
 	}
@@ -14,7 +13,6 @@ for (var i = 0; i < nums.length; i++) {
 var operators = document.getElementsByClassName('operators')
 for (var i = 0; i < operators.length; i++) {
 	operators[i].onclick = function() {
-		console.log('pressed ' + this.getAttribute('value'))
 		expression.innerHTML += this.getAttribute('value')
 	}
 }
@@ -23,7 +21,6 @@ for (var i = 0; i < operators.length; i++) {
 function clear() {
 	expression.innerText = ''
 	result.innerText = ''
-	console.log('cleared!')
 }
 var btnClear = document.getElementById('clear')
 btnClear.onclick = function() {
@@ -66,7 +63,6 @@ del.onclick = function() {
 var brackets = document.getElementById('brackets')
 brackets.onclick = function() {
 	var lastChar = expression.innerHTML.charAt(expression.innerHTML.length-1)
-	console.log(lastChar)
 	if (lastChar == '.' || lastChar == '') {
 		return false
 	} else if (/\d/.test(lastChar) || lastChar == ')') {
@@ -78,11 +74,6 @@ brackets.onclick = function() {
 }
 
 // 设置等号按键
-function transResultToExp() {
-	console.log('EQUAL' + result.innerHTML)
-	expression.innerHTML = result.innerHTML
-	result.innerHTML = ''
-}
 var btnEqual = document.getElementById('equal')
 btnEqual.addEventListener('click', function() {
 	$('#result').addClass('slideup_result')
@@ -90,9 +81,16 @@ btnEqual.addEventListener('click', function() {
 	$('#expression').addClass('slideup_exp')
 	expression.style.fontSize = result.style.fontSize
 })
-result.addEventListener('animationend', function(){
+
+function transResultToExp() {
+	expression.innerHTML = result.innerHTML
+	result.innerHTML = ''
+}
+// 动画结束吹后
+result.addEventListener('webkitAnimationEnd', function(){
 	transResultToExp()
-	$('#result').removeClass('slideup_result').css('fontSize', '28px');
+	result.style.fontSize = '28px' //result恢复原来字体大小
+	$('#result').removeClass('slideup_result')
 	$('#expression').removeClass('slideup_exp')
 }, false)
 
