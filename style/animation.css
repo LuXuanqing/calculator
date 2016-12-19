@@ -1,13 +1,17 @@
+#expression {
+  transition: font-size ease .15s;
+}
+
 @keyframes slideup_result {
-  0% {opacity: 0.5; top: 0; }
-  100% {opacity: 1; top: -107px; }
+  0% {opacity: 0.5; top: 0;}
+  100% {opacity: 1; top: -107px;}
 }
 .slideup_result {
   animation-name: slideup_result;
   animation-duration: .3s;
-  animation-timing-function: ease;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
-  transition: font-size ease .3s
+  transition: font-size cubic-bezier(0.65, 0.05, 0.36, 1) .3s;
 }
 @keyframes slideup_exp  {
   0% {top: 0; opacity: 1;}
@@ -16,5 +20,5 @@
 .slideup_exp {
   animation-name: slideup_exp;
   animation-duration: .3s;
-  animation-timing-function: ease;
+  animation-timing-function: cubic-bezier(0.47, 0, 0.75, 0.72);
 }
