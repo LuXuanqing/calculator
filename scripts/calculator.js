@@ -88,10 +88,10 @@ btnEqual.addEventListener('click', function() {
 	$('#result').addClass('slideup_result')
 	autoSize(result)
 	$('#expression').addClass('slideup_exp')
+	expression.style.fontSize = result.style.fontSize
 })
 result.addEventListener('animationend', function(){
 	transResultToExp()
-	autoSize(expression)
 	$('#result').removeClass('slideup_result').css('fontSize', '28px');
 	$('#expression').removeClass('slideup_exp')
 }, false)
