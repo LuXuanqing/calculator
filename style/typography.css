@@ -14,7 +14,7 @@
 }
 /*default: 11chars per line*/
 .size1 {
-	font-size: 48px;
+	font-size: 52px;
 }
 /*15chars per line*/
 .size2 {
@@ -27,10 +27,9 @@
 
 #result {
 	font-size: 28px;
-	line-height: 28px;
 	color: rgba(255, 255, 255, 0.5);
 }
 
 .btn {
-	font-size: 26px;
+	font-size: 22px;
 }

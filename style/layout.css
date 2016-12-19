@@ -5,29 +5,32 @@
 }
 html, body, .container {
 	height: 100%;
+	overflow: hidden;
 }
 /*上方显示区域*/
 #output {
-	height: 30%;
-	padding: 20px 20px 60px 20px;
+	height: 200px;
+	padding: 35px 30px 30px 30px;
 		position: relative;
 }
 .display {
 	width: 100%;
 }
 #expression {
-	height: 100%;
+	height: 77px;
+	position: relative;
+	margin-bottom: 30px;
+	top: 0;
 }
 #result {
 	height: 28px;
-	position: absolute;
-	bottom: 20px;
-	left: -20px;
+	position: relative;
+	top: 0px;
 }
 
 /*下方输入区域*/
 #input {
-	height: 70%;
+	height: calc(100% - 200px);
 }
 .row {
 	height: 20%;

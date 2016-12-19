@@ -98,6 +98,12 @@ function equal() {
 	changeFontSize()
 }
 var btnEqual = document.getElementById('equal')
-btnEqual.onclick = function() {
+btnEqual.addEventListener('click', function() {
+	$('#result').addClass('slideup_result').css('fontSize', '52px')
+	$('#expression').addClass('slideup_exp')
+})
+result.addEventListener('animationend', function(){
 	equal()
-}
+	$('#result').removeClass('slideup_result').css('fontSize', '28px');
+	$('#expression').removeClass('slideup_exp')
+}, false)
