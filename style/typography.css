@@ -8,29 +8,18 @@
 }
 /*表达式换行*/
 #expression {
+	font-size: 52px;
 	word-wrap: break-word;
 	overflow: auto;
 	transition: font-size ease .3s
 }
-/*default: 11chars per line*/
-.size1 {
-	font-size: 48px;
-}
-/*15chars per line*/
-.size2 {
-	font-size: 34px;
-}
-/*20chars per line*/
-.size3 {
-	font-size: 25px;
-}
+
 
 #result {
 	font-size: 28px;
-	line-height: 28px;
 	color: rgba(255, 255, 255, 0.5);
 }
 
 .btn {
-	font-size: 26px;
+	font-size: 22px;
 }
