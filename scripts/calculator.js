@@ -4,7 +4,7 @@ var result = document.getElementById('result')
 var nums = document.getElementsByClassName('btn-num')
 for (var i = 0; i < nums.length; i++) {
 	nums[i].onclick = function() {
-		expression.innerHTML += this.getAttribute('value')
+		expression.innerHTML += this.getAttribute('key')
 		calc()
 	}
 }
@@ -13,7 +13,7 @@ for (var i = 0; i < nums.length; i++) {
 var operators = document.getElementsByClassName('operators')
 for (var i = 0; i < operators.length; i++) {
 	operators[i].onclick = function() {
-		expression.innerHTML += this.getAttribute('value')
+		expression.innerHTML += this.getAttribute('key')
 	}
 }
 
@@ -74,24 +74,34 @@ brackets.onclick = function() {
 }
 
 // 设置等号按键
+function addClass(element,value) {
+	if (element.className == null) {
+		element.className = value
+	} else {
+		newClassName = element.className + " " + value
+		element.className = newClassName
+	}
+}
+function removeClass(element, value) {
+		element.className = element.className.replace(value, '')
+}
 var btnEqual = document.getElementById('equal')
 btnEqual.addEventListener('click', function() {
-	$('#result').addClass('slideup_result')
+	addClass(result, 'slideup_result')
 	autoSize(result)
-	$('#expression').addClass('slideup_exp')
+	addClass(expression, 'slideup_exp')
 	expression.style.fontSize = result.style.fontSize
 })
 
-function transResultToExp() {
-	expression.innerHTML = result.innerHTML
-	result.innerHTML = ''
-}
 // 动画结束吹后
 result.addEventListener('webkitAnimationEnd', function(){
-	transResultToExp()
-	result.style.fontSize = '28px' //result恢复原来字体大小
-	$('#result').removeClass('slideup_result')
-	$('#expression').removeClass('slideup_exp')
+	expression.innerHTML = result.innerHTML
+	result.innerHTML = ''
+	//result恢复原来字体大小
+	result.style.fontSize = '28px'
+	// 移除动画标签
+	removeClass(result, 'slideup_result')
+	removeClass(expression, 'slideup_exp')
 }, false)
 
 // 根据长度自动改变字体大小
