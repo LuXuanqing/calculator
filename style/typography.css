@@ -1,9 +1,9 @@
 * {
-	font-family: "Helvetica Neue", Helvetica, roboto, 'Droid Sans Fallback', 'Droid Sans', Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, SimSun, “宋体”, Heiti, “黑体”, sans-serif;
+	font-family: roboto, "Helvetica Neue", Helvetica, 'Droid Sans Fallback', 'Droid Sans', Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, SimSun, “宋体”, Heiti, “黑体”, sans-serif;
+	font-weight: lighter;
 }
 .display {
 	text-align: right;
-	font-weight: 100;
 	letter-spacing: 2px;
 }
 /*表达式换行*/
@@ -33,5 +33,4 @@
 
 .btn {
 	font-size: 26px;
-	font-weight: 100;
 }
