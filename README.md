@@ -1,9 +1,10 @@
 # calculator
 ### [Click to play](https://luxuanqing.github.io/calculator/)
-This is my first exercise project after learning **DOM programming**, inspired by [worawaluns](https://dribbble.com/shots/2320805--Freebie-Calculator-UI-Sketch). It fits both mobile and desktop, including **CSS animation** at the same time.
+This is my first exercise project after learning **DOM programming**, inspired by [worawaluns](https://dribbble.com/shots/2320805--Freebie-Calculator-UI-Sketch). It is **responsive** designed, fitting both mobile and desktop. At the same time, **CSS animation** makes interactions more lively.
 
-Although jQuery is a powerful weapon and I once used it in this project, but finally I keep using javascript purely. There are two reasons:
-1. I don't want to depend a library too much especially when learning basic skills.
+Although jQuery is handy and I once used it in this project, but finally I insisted using javascript purely. There are two reasons:
+
+1. I don't want to depend a library too much especially when learning basic skills.  
 2. jQuery may be outdated in some ways.
 
 ## Todo list
