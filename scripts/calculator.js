@@ -1,5 +1,6 @@
 var expression = document.getElementById('expression')
 var result = document.getElementById('result')
+var hasEqualPressed = false
 
 // 常用功能
 function addClass(element, value) {
@@ -31,9 +32,14 @@ function autoSize(el) {
 var nums = document.getElementsByClassName('btn-num')
 for (var i = 0; i < nums.length; i++) {
 	nums[i].onclick = function() {
-		expression.innerHTML += this.getAttribute('key')
-		autoSize(expression)
-		calc()
+		if (hasEqualPressed) {
+			expression.innerHTML = this.getAttribute('key')
+			hasEqualPressed = false
+		} else {
+			expression.innerHTML += this.getAttribute('key')
+			autoSize(expression)
+			calc()
+		}
 	}
 }
 
@@ -41,6 +47,7 @@ for (var i = 0; i < nums.length; i++) {
 var operators = document.getElementsByClassName('operators')
 for (var i = 0; i < operators.length; i++) {
 	operators[i].onclick = function() {
+		hasEqualPressed = false
 		expression.innerHTML += this.getAttribute('key')
 		autoSize(expression)
 	}
@@ -110,9 +117,10 @@ var btnEqual = document.getElementById('equal')
 btnEqual.addEventListener('click', function() {
 	if (expression.innerHTML !== '') {
 		addClass(result, 'slideup_result')
-		autoSize(result)
 		addClass(expression, 'slideup_exp')
+		autoSize(result)
 		expression.style.fontSize = result.style.fontSize
+		hasEqualPressed = true
 	}
 })
 
