@@ -1,10 +1,24 @@
 var expression = document.getElementById('expression')
 var result = document.getElementById('result')
+
+// 根据长度自动改变字体大小
+function autoSize(el) {
+	var length = el.innerHTML.length
+	if (length <= 9) {
+		el.style.fontSize = '52px'
+	} else if (length <= 13) {
+		el.style.fontSize = '38px'
+	} else {
+		el.style.fontSize = '30px'
+	}
+}
+
 // 设置数字输入显示
 var nums = document.getElementsByClassName('btn-num')
 for (var i = 0; i < nums.length; i++) {
 	nums[i].onclick = function() {
 		expression.innerHTML += this.getAttribute('key')
+		autoSize(expression)
 		calc()
 	}
 }
@@ -14,6 +28,7 @@ var operators = document.getElementsByClassName('operators')
 for (var i = 0; i < operators.length; i++) {
 	operators[i].onclick = function() {
 		expression.innerHTML += this.getAttribute('key')
+		autoSize(expression)
 	}
 }
 
@@ -44,7 +59,6 @@ function calc() {
 	} else {
 		result.innerText = eval(exp_true)
 	}
-	autoSize(expression)
 }
 
 // 设置del键
@@ -81,14 +95,16 @@ function addClass(element,value) {
 	}
 }
 function removeClass(element, value) {
-		element.className = element.className.replace(value, '')
+	element.className = element.className.replace(value, '')
 }
 var btnEqual = document.getElementById('equal')
 btnEqual.addEventListener('click', function() {
-	addClass(result, 'slideup_result')
-	autoSize(result)
-	addClass(expression, 'slideup_exp')
-	expression.style.fontSize = result.style.fontSize
+	if (expression.innerHTML !== '') {
+		addClass(result, 'slideup_result')
+		autoSize(result)
+		addClass(expression, 'slideup_exp')
+		expression.style.fontSize = result.style.fontSize
+	}
 })
 
 // 动画结束吹后
@@ -101,15 +117,3 @@ result.addEventListener('webkitAnimationEnd', function(){
 	removeClass(result, 'slideup_result')
 	removeClass(expression, 'slideup_exp')
 }, false)
-
-// 根据长度自动改变字体大小
-function autoSize(el) {
-	var length = el.innerHTML.length
-	if (length <= 9) {
-		el.style.fontSize = '52px'
-	} else if (length <= 13) {
-		el.style.fontSize = '38px'
-	} else {
-		el.style.fontSize = '30px'
-	}
-}
