@@ -17,9 +17,9 @@ html, body, .container {
 	width: 100%;
 }
 #expression {
-	height: 77px;
+	height: 97px;
 	position: relative;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	top: 0;
 }
 #result {
