@@ -10,3 +10,4 @@ Although jQuery is a powerful weapon and I once used it in this project, but fin
 - [x] 在算式为空时禁止输入乘除
 - [x] 点击等号之后再按数字键，清除原有的算式然后输入对应的数字
 - [ ] 计算结果位数过长时的显示
+- [ ] 控制滚动条始终保持在底部，显示算式的末尾
