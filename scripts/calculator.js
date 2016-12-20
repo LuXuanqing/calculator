@@ -47,9 +47,18 @@ for (var i = 0; i < nums.length; i++) {
 var operators = document.getElementsByClassName('operators')
 for (var i = 0; i < operators.length; i++) {
 	operators[i].onclick = function() {
-		hasEqualPressed = false
-		expression.innerHTML += this.getAttribute('key')
-		autoSize(expression)
+		// 在算式为空时禁止输入乘除
+		if ((this.getAttribute('key') == '×') || (this.getAttribute('key') == '÷')) {
+			if (expression.innerHTML !== '') {
+				hasEqualPressed = false
+				expression.innerHTML += this.getAttribute('key')
+				autoSize(expression)
+			}
+		} else {
+			hasEqualPressed = false
+			expression.innerHTML += this.getAttribute('key')
+			autoSize(expression)
+		}
 	}
 }
 
