@@ -26,6 +26,9 @@ function autoSize(el) {
 	} else {
 		el.style.fontSize = '30px'
 	}
+	// 保持expression的滚动条在最底部，以始终显示表达式的末尾
+
+	expression.scrollTop = expression.scrollHeight
 }
 
 // 设置数字输入显示
