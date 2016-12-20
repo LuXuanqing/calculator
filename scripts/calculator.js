@@ -1,6 +1,20 @@
 var expression = document.getElementById('expression')
 var result = document.getElementById('result')
 
+// 常用功能
+function addClass(element, value) {
+	if (element.className == null) {
+		element.className = value
+	} else {
+		newClassName = element.className + " " + value
+		element.className = newClassName
+	}
+}
+
+function removeClass(element, value) {
+	element.className = element.className.replace(value, '')
+}
+
 // 根据长度自动改变字体大小
 function autoSize(el) {
 	var length = el.innerHTML.length
@@ -36,9 +50,13 @@ for (var i = 0; i < operators.length; i++) {
 var btnClear = document.getElementById('clear')
 
 btnClear.addEventListener('click', function() {
-	expression.innerHTML = ''
+	addClass(expression, 'fadeout')
 	result.innerHTML = 0
 })
+expression.addEventListener('webkitAnimationEnd', function(){
+	expression.innerHTML = ''
+	removeClass(expression, 'fadeout')
+}, false)
 
 // 替换表达式中的乘除号
 function convert(str) {
@@ -79,24 +97,13 @@ brackets.onclick = function() {
 		return false
 	} else if (/\d/.test(lastChar) || lastChar == ')') {
 		expression.innerHTML += ')'
+		calc()
 	} else {
 		expression.innerHTML += '('
 	}
-	calc()
 }
 
 // 设置等号按键
-function addClass(element,value) {
-	if (element.className == null) {
-		element.className = value
-	} else {
-		newClassName = element.className + " " + value
-		element.className = newClassName
-	}
-}
-function removeClass(element, value) {
-	element.className = element.className.replace(value, '')
-}
 var btnEqual = document.getElementById('equal')
 btnEqual.addEventListener('click', function() {
 	if (expression.innerHTML !== '') {
