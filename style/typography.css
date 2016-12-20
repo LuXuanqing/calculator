@@ -14,10 +14,6 @@
 	overflow: auto;
 }
 
-span {
-	opacity: 0.85;
-}
-
 #result {
 	font-size: 28px;
 	opacity: 0.5;
