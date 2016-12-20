@@ -53,9 +53,11 @@ btnClear.addEventListener('click', function() {
 	addClass(expression, 'fadeout')
 	result.innerHTML = 0
 })
-expression.addEventListener('webkitAnimationEnd', function(){
-	expression.innerHTML = ''
-	removeClass(expression, 'fadeout')
+expression.addEventListener('webkitAnimationEnd', function(e){
+	if (e.animationName == 'fadeout') {
+		expression.innerHTML = ''
+		removeClass(expression, 'fadeout')
+	}
 }, false)
 
 // 替换表达式中的乘除号
@@ -115,12 +117,14 @@ btnEqual.addEventListener('click', function() {
 })
 
 // 动画结束吹后
-result.addEventListener('webkitAnimationEnd', function(){
-	expression.innerHTML = result.innerHTML
-	result.innerHTML = ''
-	//result恢复原来字体大小
-	result.style.fontSize = '28px'
-	// 移除动画标签
-	removeClass(result, 'slideup_result')
-	removeClass(expression, 'slideup_exp')
+result.addEventListener('webkitAnimationEnd', function(e){
+	if (e.animationName == 'slideup_result') {
+		expression.innerHTML = result.innerHTML
+		result.innerHTML = ''
+		//result恢复原来字体大小
+		result.style.fontSize = '28px'
+		// 移除动画标签
+		removeClass(result, 'slideup_result')
+		removeClass(expression, 'slideup_exp')
+	}
 }, false)
