@@ -127,7 +127,7 @@ brackets.onclick = function() {
 // 设置等号按键
 var btnEqual = document.getElementById('equal')
 btnEqual.addEventListener('click', function() {
-	if (expression.innerHTML !== '') {
+	if (result.innerHTML !== '' && result.innerHTML !== '0') {
 		addClass(result, 'slideup_result')
 		addClass(expression, 'slideup_exp')
 		autoSize(result)
