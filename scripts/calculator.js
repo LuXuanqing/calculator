@@ -127,7 +127,8 @@ brackets.onclick = function() {
 // 设置等号按键
 var btnEqual = document.getElementById('equal')
 btnEqual.addEventListener('click', function() {
-	if (result.innerHTML !== '' && result.innerHTML !== '0') {
+	//当结果为空（刚才按过等号）或者清零之后，不能按等号键
+	if (result.innerHTML !== '' || !(expression.innerHTML == '' && result.innerHTML == '0') {
 		addClass(result, 'slideup_result')
 		addClass(expression, 'slideup_exp')
 		autoSize(result)
@@ -136,7 +137,7 @@ btnEqual.addEventListener('click', function() {
 	}
 })
 
-// 动画结束吹后
+// 动画结束后
 result.addEventListener('webkitAnimationEnd', function(e){
 	if (e.animationName == 'slideup_result') {
 		expression.innerHTML = result.innerHTML
