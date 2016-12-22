@@ -58,11 +58,16 @@ html, body, .container {
 /*for desktop*/
 @media (min-width: 769px) {
 	.container {
-		height: 600px;
+		height: 512px;
 		width: 360px;
 		position: absolute;
 		top: 30%;
 		left: 50%;
 		transform: translate(-50%, -30%);
+	}
+}
+@media (min-width: 1440px) {
+	.container {
+		height: 620px;
 	}
 }
